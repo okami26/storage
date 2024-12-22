@@ -9,7 +9,7 @@ import java.util.Optional;
 @Repository
 public interface FileRepo extends JpaRepository<FileModel, Integer> {
 
-    Optional<FileModel> findByName(String name);
+    Optional<FileModel> findByNameAndPath(String name, String path);
 
     void deleteByNameAndPath(String name, String path);
 }

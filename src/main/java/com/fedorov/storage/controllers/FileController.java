@@ -33,7 +33,7 @@ public class FileController {
 
     @PostMapping("/deleteFile")
     public ResponseEntity<?> deleteFile(@RequestParam("name") String name, @RequestParam("path") String path) {
-        return fileService.deleteFile(path, name);
+        return fileService.deleteFile(name, path);
     }
 
     @PostMapping("/deleteDirectory")
