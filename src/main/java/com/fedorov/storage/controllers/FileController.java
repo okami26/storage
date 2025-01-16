@@ -4,10 +4,7 @@ package com.fedorov.storage.controllers;
 import com.fedorov.storage.services.FileService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
 @RestController
@@ -39,6 +36,55 @@ public class FileController {
     @PostMapping("/deleteDirectory")
     public ResponseEntity<?> deleteDirectory(@RequestParam("name") String name, @RequestParam("path") String path) {
         return fileService.deleteDirectory(path, name);
+    }
+
+
+
+    @GetMapping("/getFiles")
+    public ResponseEntity<?> getFiles(@RequestParam("path") String path) {
+
+
+        return fileService.getFiles(path);
+
+    }
+
+    @GetMapping("/getFilesOrderByName")
+    public ResponseEntity<?> getFilesOrderByName(@RequestParam("path") String path, @RequestParam("order") String order) {
+
+
+        return fileService.getFilesOrderByName(path, order);
+
+    }
+
+    @GetMapping("/getFilesOrderByExtension")
+    public ResponseEntity<?> getFilesOrderByExtension(@RequestParam("path") String path, @RequestParam("order") String order) {
+
+
+        return fileService.getFilesOrderByExtension(path, order);
+
+    }
+
+    @GetMapping("/getFilesOrderBySize")
+    public ResponseEntity<?> getFilesOrderBySize(@RequestParam("path") String path, @RequestParam("order") String order) {
+
+
+        return fileService.getFilesOrderBySize(path, order);
+
+    }
+
+    @GetMapping("/getFilesOrderByDate")
+    public ResponseEntity<?> getFilesOrderByDate(@RequestParam("path") String path, @RequestParam("order") String order) {
+
+
+        return fileService.getFilesOrderByDate(path, order);
+
+    }
+
+    @GetMapping("/downloadFile")
+    public ResponseEntity<?> download(@RequestParam("path") String path, @RequestParam("name") String name) {
+
+        return fileService.downloadFile(path, name);
+
     }
 
 }
