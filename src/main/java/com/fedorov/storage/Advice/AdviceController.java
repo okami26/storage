@@ -44,7 +44,7 @@ public class AdviceController {
     @ExceptionHandler
     public ResponseEntity<?> handlerDeleteFileException(DeleteFileException e) {
 
-        CustomError error = new CustomError("Файл с таким именем уже существует", HttpStatus.BAD_REQUEST.value());
+        CustomError error = new CustomError("Не получается удалить файл", HttpStatus.BAD_REQUEST.value());
         return new ResponseEntity<>(error, HttpStatus.BAD_REQUEST);
 
     }

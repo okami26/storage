@@ -2,5 +2,5 @@ package com.fedorov.storage.Advice;
 
 
 
-public class CreateDirectoryException extends Exception{
+public class CreateDirectoryException extends RuntimeException{
 }
